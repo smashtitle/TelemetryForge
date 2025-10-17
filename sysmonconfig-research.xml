@@ -1,7 +1,6 @@
 <!--  
-Based on Olaf Hartong's sysmonconfig-research, plus additional events that have been added
-to Sysmon since his last commit in October 2022.
-Removed the FileBlockExecutable rule, as the thing as written prevented all PE file writes!
+Based on Olaf Hartong's sysmonconfig-research. Added Event ID 29: FileExecutableDetected, which was newly available
+in June 2023). Removed the FileBlockExecutable exclusion rule, as the thing as written prevents all PE file writes!
 -->
 
 <Sysmon schemaversion="4.90">
@@ -78,6 +77,6 @@ Removed the FileBlockExecutable rule, as the thing as written prevented all PE f
     <ProcessTampering onmatch="exclude"/>
     <FileDeleteDetected onmatch="exclude"/>
     <FileBlockShredding onmatch="exclude"/>
-
+    <FileExecutableDetected onmatch="exclude"/>
   </EventFiltering>
 </Sysmon>
